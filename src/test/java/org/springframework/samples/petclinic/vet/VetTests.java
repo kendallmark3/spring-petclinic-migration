@@ -33,7 +33,7 @@ public class VetTests {
         vet.setLastName("Beeblebrox");
         vet.setId(123);
         Vet other = (Vet) SerializationUtils
-                .deserialize(SerializationUtils.serialize(vet));
+            .deserialize(SerializationUtils.serialize(vet));
         assertEquals(vet.getFirstName(), other.getFirstName());
         assertEquals(vet.getLastName(), other.getLastName());
         assertEquals(vet.getId(), other.getId());

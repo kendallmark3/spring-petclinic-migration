@@ -26,8 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = PetController.class,
     includeFilters = @ComponentScan.Filter(
-                            value = PetTypeFormatter.class,
-                            type = FilterType.ASSIGNABLE_TYPE))
+        value = PetTypeFormatter.class,
+        type = FilterType.ASSIGNABLE_TYPE))
 public class PetControllerTests {
 
     private static final int TEST_OWNER_ID = 1;
@@ -77,7 +77,7 @@ public class PetControllerTests {
             .param("type", "hamster")
             .param("birthDate", "2015-02-12")
         )
-            .andExpect(status().is3xxRedirection())
+        .andExpect(status().is3xxRedirection())
             .andExpect(view().name("redirect:/owners/{ownerId}"));
     }
 
@@ -87,7 +87,7 @@ public class PetControllerTests {
             .param("name", "Betty")
             .param("birthDate", "2015-02-12")
         )
-            .andExpect(model().attributeHasNoErrors("owner"))
+        .andExpect(model().attributeHasNoErrors("owner"))
             .andExpect(model().attributeHasErrors("pet"))
             .andExpect(model().attributeHasFieldErrors("pet", "type"))
             .andExpect(model().attributeHasFieldErrorCode("pet", "type", "required"))
@@ -110,7 +110,7 @@ public class PetControllerTests {
             .param("type", "hamster")
             .param("birthDate", "2015-02-12")
         )
-            .andExpect(status().is3xxRedirection())
+        .andExpect(status().is3xxRedirection())
             .andExpect(view().name("redirect:/owners/{ownerId}"));
     }
 
@@ -120,7 +120,7 @@ public class PetControllerTests {
             .param("name", "Betty")
             .param("birthDate", "2015/02/12")
         )
-            .andExpect(model().attributeHasNoErrors("owner"))
+        .andExpect(model().attributeHasNoErrors("owner"))
             .andExpect(model().attributeHasErrors("pet"))
             .andExpect(status().isOk())
             .andExpect(view().name("pets/createOrUpdatePetForm"));

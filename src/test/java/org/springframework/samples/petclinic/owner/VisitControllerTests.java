@@ -53,7 +53,7 @@ public class VisitControllerTests {
             .param("name", "George")
             .param("description", "Visit Description")
         )
-            .andExpect(status().is3xxRedirection())
+        .andExpect(status().is3xxRedirection())
             .andExpect(view().name("redirect:/owners/{ownerId}"));
     }
 
@@ -62,7 +62,7 @@ public class VisitControllerTests {
         mockMvc.perform(post("/owners/*/pets/{petId}/visits/new", TEST_PET_ID)
             .param("name", "George")
         )
-            .andExpect(model().attributeHasErrors("visit"))
+        .andExpect(model().attributeHasErrors("visit"))
             .andExpect(status().isOk())
             .andExpect(view().name("pets/createOrUpdateVisitForm"));
     }

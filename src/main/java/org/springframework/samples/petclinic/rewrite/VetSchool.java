@@ -1,7 +1,7 @@
 package org.springframework.samples.petclinic.rewrite;
 
 public class VetSchool {
-    public String getName(){
+    public String getName() {
         return "VetSchool";
     }
 }
